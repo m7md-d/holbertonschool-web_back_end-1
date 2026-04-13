@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Define a typed utility function for converting a floating-point number to a string."""
+"""Define a typed utility function for converting floating number to string."""
 
 
 def to_str(n: float) -> str:
