@@ -11,7 +11,7 @@ async def async_comprehension() -> List[float]:
     """
     Coroutine that collects 10 random numbers using async comprehension
     syntax over async_generator and returns them as a list.
-    
+
     Returns:
         List[float]: A list of 10 random numbers from async_generator.
     """
