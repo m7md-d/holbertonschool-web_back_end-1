@@ -1,12 +1,10 @@
 export default class Building {
   constructor(sqft) {
-    if (this.constructor === Building) {
-      throw new TypeError(
-        "Abstract class 'Building' cannot be instantiated directly.",
-      );
-    }
-    if (this.evacuationWarningMessage === undefined) {
-      throw new TypeError(
+    if (
+      this.constructor !== Building &&
+       this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage
+    ) {
+      throw new Error(
         'Class extending Building must override evacuationWarningMessage',
       );
     }
@@ -19,5 +17,12 @@ export default class Building {
 
   set sqft(value) {
     this._sqft = value;
+  }
+
+  /* eslint-disable class-methods-use-this */
+  evacuationWarningMessage() {
+    throw new Error(
+      'Class extending Building must override evacuationWarningMessage',
+    );
   }
 }
