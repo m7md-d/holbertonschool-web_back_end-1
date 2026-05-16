@@ -1,13 +1,13 @@
 export default function cleanSet(set, startString) {
-  return set
-    .filter((object) => {
-      for (let i = 0; i < startString.length; i += 1) {
-        if (!object[i] === startString[i]) {
-          return false;
-        }
-        return true;
-      }
-    })
+  // Guard clause for edge cases (if startString is empty or not a string)
+  if (
+    !startString || typeof startString !== 'string' || !(set instanceof Set)
+  ) {
+    return '';
+  }
+
+  return [...set]
+    .filter((item) => typeof item === 'string' && item.startsWith(startString))
     .map((item) => item.slice(startString.length))
     .join('-');
 }
